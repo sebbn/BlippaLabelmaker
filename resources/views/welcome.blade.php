@@ -79,7 +79,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    INIT COMMIT
+                    INIT COMMIT 2
                 </div>
 
                 <div class="links">
