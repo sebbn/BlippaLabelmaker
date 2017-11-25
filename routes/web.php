@@ -12,4 +12,4 @@
 */
 
 Route::get('/', 'LabelController@index')->name('index');
-
+Route::get('customer/{id}', 'LabelController@customer')->name('customer');
