@@ -36,10 +36,9 @@ class LabelController extends Controller
 				foreach ($items as $item)
 				{
 					array_push($products, $item);
-					//echo $item->title . '</br>';
 				}
 
-				if ($data->data->pagination->currentPage == $data->data->pagination->lastPage)
+				if ($data->data->pagination->currentPage != $data->data->pagination->lastPage)
 				{
 					$page = $page + 1;
 				}
@@ -51,13 +50,9 @@ class LabelController extends Controller
 			    		'items' => $products,
 			    	];
 
-			    	//return view('print.pdf', $data);
+					$pdf = PDF::loadView('print.pdf', $data);
 
-					/*$pdf = PDF::loadView('print.pdf', $data);
-					return $pdf->stream();*/
-
-					$pdf = PDF::loadView('print.pdf', $data, [], ['margin_top' => 0, 'margin_left' => 0, 'margin_right' => 0, 'margin_bottom' => 0]);
-					return $pdf->stream();
+					return $pdf->setPaper('a4')->stream();
 				}
 			}
 		}

@@ -178,8 +178,8 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         //Manually added
-        niklasravnsborg\LaravelPdf\PdfServiceProvider::class,
         SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class,
+        Barryvdh\DomPDF\ServiceProvider::class,
     ],
 
     /*
@@ -230,8 +230,8 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
         // Added
-        'PDF' => niklasravnsborg\LaravelPdf\Facades\Pdf::class,
         'QrCode' => SimpleSoftwareIO\QrCode\Facades\QrCode::class,
+        'PDF' => Barryvdh\DomPDF\Facade::class,
     ],
 
 ];

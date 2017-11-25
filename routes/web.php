@@ -12,3 +12,4 @@
 */
 
 Route::get('/', 'LabelController@index')->name('index');
+
