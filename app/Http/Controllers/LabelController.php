@@ -15,8 +15,49 @@ class LabelController extends Controller
 		return view('public.index');
 	}
 
-	public function customer($id)
+	public function build()
+	{
+		return view('public.build');
+	}
+
+	public function print(Request $request)
+	{
+    	$client = new Client();
+
+		$str = $request->ids;
+
+		$ids = explode(',', $str);
+    	$products = array();
+
+		foreach ($ids as $id) 
+		{
+	        $res = $client->request('POST', 'http://test.nordenta.se/api/products/get?key=f56e13d53f6a08395616e432782f5221952a7eb03071f49b1ec6758d369a0442&token=RTMmdjgxrgwFQbWzVslGWMvINJkKkCXICXikq5foWTZwEpkuZOf2XdGmPkpi', [
+	            'form_params' => [
+	                'artnr' => $id,
+	            ]
+	        ]);
+
+	        if ($res->getStatusCode() == '200')
+	        {
+		        $data = json_decode($res->getBody());
+
+				array_push($products, $data->data->item);
+		    }
+		}
+
+		$data = [
+    		'items' => $products,
+    	];
+
+		$pdf = PDF::loadView('print.pdf', $data);
+
+		return $pdf->setPaper('a4')->stream();
+	}
+
+	public function customer(Request $request)
     {
+    	$id = $request->customerNr;
+
     	$client = new Client();
 
     	$done = false;

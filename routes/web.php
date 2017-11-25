@@ -12,4 +12,6 @@
 */
 
 Route::get('/', 'LabelController@index')->name('index');
-Route::get('customer/{id}', 'LabelController@customer')->name('customer');
+Route::get('build', 'LabelController@build')->name('build');
+Route::post('print', 'LabelController@print')->name('print');
+Route::post('customer', 'LabelController@customer')->name('customer');
