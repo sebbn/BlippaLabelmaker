@@ -30,8 +30,8 @@
 			<img style="position: relative; left: 1mm; top: 1.8mm; width: 58px; height: 58px;" src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->margin(0)->size(65)->color(0, 130, 161)->merge(asset('images/logo.png'), .2, true)->generate($item->artnr)) !!} ">
 			
 			<div style="position: relative; left: 18mm; top: -15mm; width: 19mm;">
-				<div style="font-size: 1.5mm; color:rgb(0, 130, 161);">Art.nr. {{ $item->artnr }}</div>
-				<div style="font-size: 2mm; color:rgb(0, 130, 161); word-wrap: break-word;">{{ $item->title }}</div>
+				<div style="font-size: 2mm; color:rgb(0, 130, 161);">Art.nr. {{ $item->artnr }}</div>
+				<div style="font-size: 2.5mm; color:rgb(0, 130, 161); word-wrap: break-word;">{{ $item->title }}</div>
 			</div>
 
 		</div>
