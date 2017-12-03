@@ -66,7 +66,7 @@ class LabelController extends Controller
 
     	while (!$done)
     	{
-	        $res = $client->request('POST', 'https://test.nordenta.se/api/my/products/get?key=e9c6bd857377cf6bb3dff2c07c609ed67f3c9439df89675e2244e8a093671b65&token=RTMmdjgxrgwFQbWzVslGWMvINJkKkCXICXikq5foWTZwEpkuZOf2XdGmPkpi', [
+	        $res = $client->request('POST', 'https://test.nordenta.se/api/my/items/get?key=e9c6bd857377cf6bb3dff2c07c609ed67f3c9439df89675e2244e8a093671b65&token=RTMmdjgxrgwFQbWzVslGWMvINJkKkCXICXikq5foWTZwEpkuZOf2XdGmPkpi', [
 	            'form_params' => [
 	                'sortby' => 'title',
 	                'page' => $page,
