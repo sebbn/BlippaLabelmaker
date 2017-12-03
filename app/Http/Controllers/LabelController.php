@@ -31,7 +31,7 @@ class LabelController extends Controller
 
 		foreach ($ids as $id) 
 		{
-	        $res = $client->request('POST', 'https://test.nordenta.se/api/products/get?key=f56e13d53f6a08395616e432782f5221952a7eb03071f49b1ec6758d369a0442&token=RTMmdjgxrgwFQbWzVslGWMvINJkKkCXICXikq5foWTZwEpkuZOf2XdGmPkpi', [
+	        $res = $client->request('POST', 'https://test.nordenta.se/api/items/get?key=f56e13d53f6a08395616e432782f5221952a7eb03071f49b1ec6758d369a0442&token=RTMmdjgxrgwFQbWzVslGWMvINJkKkCXICXikq5foWTZwEpkuZOf2XdGmPkpi', [
 	            'form_params' => [
 	                'artnr' => $id,
 	            ]
