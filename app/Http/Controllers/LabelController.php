@@ -80,7 +80,7 @@ class LabelController extends Controller
 
 		        if ($data->data->pagination->total != 0)
 		        {
-					$items = $data->data->items;
+					$items = $data->data->products;
 
 					foreach ($items as $item)
 					{
