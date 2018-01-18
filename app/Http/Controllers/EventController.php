@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 use App\Event;
 
@@ -18,11 +19,15 @@ class EventController extends Controller
     		$e->user = $request->has('user') ? $request->user : null;
     		$e->save();
 
-    		return 200;
+    		return response()->json([
+			    'status' => 200,
+			]);
     	}
     	else
     	{
-    		return 401;
+    		return response()->json([
+			    'status' => 401,
+			]);
     	}
     }
 
