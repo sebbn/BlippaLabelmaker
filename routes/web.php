@@ -11,7 +11,12 @@
 |
 */
 
+// Labels
 Route::get('/', 'LabelController@index')->name('index');
 Route::get('build', 'LabelController@build')->name('build');
 Route::post('print', 'LabelController@print')->name('print');
 Route::post('customer', 'LabelController@customer')->name('customer');
+
+// statistic
+Route::get('stats', 'EventController@index')->name('stats');
+Route::get('event', 'EventController@store')->name('stats.store');
