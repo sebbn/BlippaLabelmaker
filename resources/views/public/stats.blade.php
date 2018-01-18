@@ -10,22 +10,22 @@
 		
 		<table>
 			<tr>
-				<th>ID<th>
-				<th>Namn<th>
-				<th>Värde</th>
-				<th>Användare<th>
-				<th>Device</th>
-				<th>Datum</th>			
+				<th class="statsHeader">ID</th>
+				<th class="statsHeader">Namn</th>
+				<th class="statsHeader">Värde</th>
+				<th class="statsHeader">Användare</th>
+				<th class="statsHeader">Device</th>
+				<th class="statsHeader">Datum</th>			
 			</tr>
 
 			@foreach ($events as $event)
 				<tr>
-					<td>$event->eventId<td>
-					<td>$event->name<td>
-					<td>$event->value</td>
-					<td>$event->user<td>
-					<td>$event->useragent</td>
-					<td>$event->created_at</td>
+					<td class="statsHeader">{{ $event->eventId }}</td>
+					<td class="statsHeader">{{ $event->name }}</td>
+					<td class="statsHeader">{{ $event->value }}</td>
+					<td class="statsHeader">{{ $event->user }}</td>
+					<td class="statsHeader">{{ $event->useragent }}</td>
+					<td class="statsHeader">{{ $event->created_at }}</td>
 				</tr>
 			@endforeach
 		</table>

@@ -37,11 +37,8 @@ class EventController extends Controller
     	// show last 10 events
     	$events = Event::orderBy('created_at', 'desc')->paginate(10);
 
-    	echo '<h2>Events</h2></br>';
-    	foreach ($events as $event)
-    	{
-    		echo $event->name . ' | ' . $event->user . ' | ' . $event->created_at;
-    		echo '</br>';
-    	}
+    	return view('public.stats', [
+    		'events' => $events,
+		]);
     }
 }
