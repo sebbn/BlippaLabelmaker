@@ -15,6 +15,7 @@ class EventController extends Controller
     	{
     		$e = new Event();
     		$e->name = $request->name;
+    		$e->value = $request->has('value') ? $request->value : null;
     		$e->useragent = $request->useragent;
     		$e->user = $request->has('user') ? $request->user : null;
     		$e->save();
