@@ -19,4 +19,4 @@ Route::post('customer', 'LabelController@customer')->name('customer');
 
 // statistic
 Route::get('stats', 'EventController@index')->name('stats');
-Route::post('event', 'EventController@store')->name('stats.store');
+Route::any('event', 'EventController@store')->name('stats.store');
