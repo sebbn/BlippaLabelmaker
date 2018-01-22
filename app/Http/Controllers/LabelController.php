@@ -31,7 +31,7 @@ class LabelController extends Controller
 
 		foreach ($ids as $id) 
 		{
-	        $res = $client->request('POST', 'https://test.nordenta.se/api/items/get?key=f56e13d53f6a08395616e432782f5221952a7eb03071f49b1ec6758d369a0442&token=RTMmdjgxrgwFQbWzVslGWMvINJkKkCXICXikq5foWTZwEpkuZOf2XdGmPkpi', [
+	        $res = $client->request('POST', 'https://nordenta.se/api/items/get?key=d710c15b8a17d4f89c65a1f222a52a5302a3ed4029671c4c315145c23caa4004&token=EDyHzpuPmVKK5jb76V0ZQGRIRfjfDcJkQf0CpR2BwguU8GzSdX6qomsaOaSL', [
 	            'form_params' => [
 	                'artnr' => $id,
 	            ]
@@ -66,7 +66,7 @@ class LabelController extends Controller
 
     	while (!$done)
     	{
-	        $res = $client->request('POST', 'https://test.nordenta.se/api/my/items/get?key=e9c6bd857377cf6bb3dff2c07c609ed67f3c9439df89675e2244e8a093671b65&token=RTMmdjgxrgwFQbWzVslGWMvINJkKkCXICXikq5foWTZwEpkuZOf2XdGmPkpi', [
+	        $res = $client->request('POST', 'https://nordenta.se/api/my/items/get?key=d710c15b8a17d4f89c65a1f222a52a5302a3ed4029671c4c315145c23caa4004&token=EDyHzpuPmVKK5jb76V0ZQGRIRfjfDcJkQf0CpR2BwguU8GzSdX6qomsaOaSL', [
 	            'form_params' => [
 	                'sortby' => 'title',
 	                'page' => $page,
