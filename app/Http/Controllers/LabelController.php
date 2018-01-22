@@ -26,7 +26,7 @@ class LabelController extends Controller
 
 		$str = $request->ids;
 
-		$ids = explode(',', $str);
+		$ids = explode(',', $str); // ex) 2025,1891,6891
     	$products = array();
 
 		foreach ($ids as $id) 
@@ -96,7 +96,7 @@ class LabelController extends Controller
 
 					if ($data->data->pagination->currentPage != $data->data->pagination->lastPage)
 					{
-						$page = $page + 1;
+						$page++;
 					}
 					else
 					{
@@ -114,7 +114,7 @@ class LabelController extends Controller
 				else
 				{
 					$done = true;
-					echo 'Kund med nr ('. $id .') har inga mina produkter';
+					echo 'Kund med nr ('. $id .') har inga produkter';
 				}
 			}
 		}
