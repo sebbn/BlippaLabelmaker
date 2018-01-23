@@ -8,49 +8,62 @@
 	<style>
 		@page { margin: 0px; }
 		body { margin: 0px; }
+
+		.label
+		{
+			position: absolute;
+			width: 38.1mm;
+			height: 21.17mm;
+		}
+
+		.qr
+		{
+			position: relative;
+			left: 1mm;
+			top: 1.8mm;
+			width: 58px;
+			height: 58px;
+		}
+
+		.info
+		{
+			position: relative;
+			left: 18mm;
+			top: -15mm;
+			width: 19mm;
+		}
+
+		.artnr
+		{
+			font-size: 2mm;
+			color: rgb(0, 130, 161);
+
+		}
+
+		.title
+		{
+			font-size: 2.5mm;
+			color: rgb(0, 130, 161);
+			word-wrap: break-word;
+		}
 	</style>
 </head>
 
 <body>
-	@php
-		$m = 0;
-		$n = 0;
-		$i = 0;
-	@endphp
-
-	@foreach ($items as $item)
-		@php
-			$r = ($i + 1) / 5;
-
-			$x = 3 + $n * 42;
-			$y = 8 + $m * 22;
-		@endphp
-		<div style="position: absolute; width: 38.1mm; height: 21.17mm; left: {{ $x }}mm; top: {{ $y }}mm;">		
+	@for ($i = 0; $i < count($items); $i++)
+		<div class="label" style="left: {{ 3 + ($i % 5) * 42 }}mm; top: {{ 8 + (int)(($i - ((int)($i / 65) * 65)) / 5) * 22 }}mm;">		
 			
-			<img style="position: relative; left: 1mm; top: 1.8mm; width: 58px; height: 58px;" src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->margin(0)->size(65)->color(0, 130, 161)->merge(asset('images/logo.png'), .2, true)->generate($item->artnr)) !!} ">
+			<img class="qr" src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->margin(0)->size(65)->color(0, 130, 161)->merge(asset('images/logo.png'), .2, true)->generate($items[$i]->artnr)) !!} ">
 			
-			<div style="position: relative; left: 18mm; top: -15mm; width: 19mm;">
-				<div style="font-size: 2mm; color:rgb(0, 130, 161);">Art.nr. {{ $item->artnr }}</div>
-				<div style="font-size: 2.5mm; color:rgb(0, 130, 161); word-wrap: break-word;">{{ $item->title }}</div>
+			<div class="info">
+				<div class="artnr">Art.nr. {{ $items[$i]->artnr }}</div>
+				<div class="title">{{ $items[$i]->title }}</div>
 			</div>
 
 		</div>
 
-		@php 
-			if ($n == 4)
-	    	{
-		        $n = 0;
-		        $m++;
-		        
-		        if ($m == 13)
-		        {
-		            echo '<div style="page-break-after: always;"></div>';
-		            $m = 0;
-		        }
-		    }
-		    else 
-		        $n++;
-			$i++;
-		@endphp
-	@endforeach
+        @if ($i > 0 && ($i % 64) == 0)
+           	<div style="page-break-after: always;"></div>
+	    @endif
+	@endfor
 </body>
